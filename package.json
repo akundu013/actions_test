@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "docker:build": "docker build -t cicd .",
+    "docker:run": "docker run -p 3000:3000 --init --rm cicd",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start": "node server.js",
-    "test": "jest"
+    "test": "jest",
+    "validate": "npm run format:check && npm run lint && npm test"
   },
   "keywords": [],
   "author": "",
